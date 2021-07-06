@@ -1,0 +1,51 @@
+﻿<div class="card mt-4">
+    <h4 class="card-header">Dashboard Page</h4>
+    <div class="card-body">
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        <ul *ngIf="products">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="row">
+                        <button type="button" class="btn btn-primary my-3" (click)='placeOrder()'>CREATE
+                            ORDER</button>
+                    </div>
+                    <table class="table">
+                        <thead class="table-dark">
+                            <h4>Product List</h4>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of products">
+                                <td>{{product.id}}</td>
+                                <td>{{product.name}}</td>
+                                <td>{{product.price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead class="table-dark">
+                            <h4>Order List</h4>
+                            <tr>
+                                <th>#</th>
+                                <th>Created Date</th>
+                                <th>Total Price</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let order of orders">
+                                <td>{{order.id}}</td>
+                                <td>{{order.dateCreated}}</td>
+                                <td>{{order.totalPrice}}</td>
+                                <td>{{order.status}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </ul>
+    </div>
